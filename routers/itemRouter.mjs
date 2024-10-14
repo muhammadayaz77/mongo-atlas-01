@@ -1,9 +1,11 @@
 import express from 'express'
-import { createItem, getData } from '../controllers/itemController.mjs';
+import { createItem, deleteItem, getData, updateItem } from '../controllers/itemController.mjs';
 
 let router = express.Router();
 
 router.get('/',getData);
-router.get('/',createItem);
+router.post('/',createItem);
+router.put('/:id',updateItem);
+router.delete('/:id',deleteItem);
 
 export default router;

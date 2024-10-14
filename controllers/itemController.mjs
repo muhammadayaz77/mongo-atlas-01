@@ -10,3 +10,13 @@ export const createItem = async (req, res) => {
     await newItem.save();
     res.status(201).json(newItem);
 };
+
+export const updateItem = async (req,res) => {
+    let updatedItem = await Item.findByIdAndUpdate(req.params.id,req.body,{new:true});
+    res.json(updatedItem);
+}
+
+export const deleteItem = async (req,res) => {
+    await Item.findByIdAndDelete(req.params.id);
+    res.status(204).end();
+}
